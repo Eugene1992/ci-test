@@ -4,9 +4,7 @@ import com.cbs.edu.model.Employee;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void getAverageSalary() throws Exception {
+    public void getAverageSalary() {
         final int EXPECTED = testEmployee.getSalary();
         final int ACTUAL = EmployeeService.getAverageSalary(employees);
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -40,7 +38,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void getTotalSalary() throws Exception {
+    public void getTotalSalary() {
         final int EXPECTED = testEmployee.getSalary() * employees.size();
         final int ACTUAL = EmployeeService.getTotalSalary(employees);
         Assert.assertEquals(EXPECTED, ACTUAL);
@@ -51,10 +49,9 @@ public class EmployeeServiceTest {
         final int ACTUAL = EmployeeService.getTotalSalary(emptyEmployees);
     }
 
+    /* Need for jacoco complicity pass */
     @Test
-    public void testConstructorIsPrivate()
-            throws NoSuchMethodException, IllegalAccessException,
-            InstantiationException, InvocationTargetException {
+    public void testConstructorIsPrivate() throws Exception {
         Constructor<EmployeeService> constructor = EmployeeService.class.getDeclaredConstructor();
         Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         constructor.setAccessible(true);

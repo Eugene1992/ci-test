@@ -14,7 +14,9 @@
 
     <build>
         <plugins>
-            <!-- Tell maven to compile using Java 8 -->
+            <!-- ======================================================== -->
+            <!--                   maven-compiler-plugin                  -->
+            <!-- ======================================================== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -42,7 +44,9 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
+            <!-- ======================================================== -->
+            <!--                  maven-checkstyle-plugin                 -->
+            <!-- ======================================================== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -64,7 +68,9 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- ======================================================== -->
+            <!--                      maven-pmd-plugin                    -->
+            <!-- ======================================================== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -73,6 +79,7 @@
                     <failOnViolation>true</failOnViolation>
                     <failurePriority>5</failurePriority>
                     <printFailingErrors>true</printFailingErrors>
+                    <linkXRef>false</linkXRef>
                 </configuration>
                 <executions>
                     <execution>
@@ -82,7 +89,9 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- ======================================================== -->
+            <!--                   maven-findbugs-plugin                  -->
+            <!-- ======================================================== -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
@@ -114,7 +123,9 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- ======================================================== -->
+            <!--                    maven-jacoco-plugin                   -->
+            <!-- ======================================================== -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -145,7 +156,6 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
-
                             <rules>
                                 <rule>
                                     <element>BUNDLE</element>
@@ -179,16 +189,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <dependencies>
         <dependency>
